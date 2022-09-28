@@ -6,7 +6,7 @@ pipeline{
     stages{
        stage('scm checkout'){
           steps{
-          git 
+          git 'https://github.com/mallidiyaan/new.git'
           }
        }
        stage('build docker image'){
