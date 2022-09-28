@@ -1,0 +1,28 @@
+pipeline{
+    agent any
+    environment{
+    DOCKERHUB CREDENTIALS = credentials(mallikarjunsahu-dockerhub)
+    }
+    stages{
+       stage('scm checkout'){
+          steps{
+          git 
+          }
+       }
+       stage('build docker image'){
+          steps{
+             sh 'docker build . -t <your username>/node-web-app'
+          }
+       }
+       stage('login to dockerhub'){
+          steps{
+             sh 'pipeline syntax'
+          }
+       }
+       stage('push image'){
+          steps{
+             sh 'docker push'
+          }
+       }
+    }
+}
